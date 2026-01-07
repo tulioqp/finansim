@@ -74,7 +74,7 @@ export default function Simulator() {
         </div>
 
         <div>
-          <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded" disabled={loading}>
+          <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium transition disabled:opacity-60" disabled={loading}>
             {loading ? 'Calculando...' : 'Calcular'}
           </button>
         </div>
