@@ -17,6 +17,9 @@ export default function Header() {
           <Link href="/juros-compostos" className="hover:underline">
             Juros Compostos
           </Link>
+          <Link href="/quanto-investir-por-mes" className="hover:underline">
+            Quanto Investir por Mês
+          </Link>
         </nav>
       </div>
     </header>

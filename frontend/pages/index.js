@@ -33,6 +33,11 @@ export default function Home() {
                 Simulador de Juros Compostos
               </Link>
             </li>
+            <li>
+              <Link href="/quanto-investir-por-mes" className="text-blue-600">
+                Quanto Investir por Mês
+              </Link>
+            </li>
           </ul>
         </main>
       </div>
