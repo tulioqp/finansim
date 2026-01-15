@@ -39,6 +39,23 @@ export default function Home() {
               </Link>
             </li>
           </ul>
+
+          {/* Espaço para “empurrar” o conteúdo final */}   
+          <div className="mt-20 pt-6 border-t text-sm text-gray-500">
+            <p>
+              Planilha Excel para acompanhar e simular a evolução do seu
+              patrimônio ao longo do tempo.
+            </p>
+
+            <a
+              href="https://pay.kiwify.com.br/SAMOtee"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-2 text-green-700 font-medium hover:underline"
+            >
+              Adquira a planilha Excel
+            </a>
+          </div>
         </main>
       </div>
 
