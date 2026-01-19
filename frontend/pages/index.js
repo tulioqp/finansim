@@ -38,6 +38,12 @@ export default function Home() {
                 Quanto Investir por Mês
               </Link>
             </li>
+            <li>
+              <Link href="/quanto-rende-100-mil" className="text-blue-600">
+                 Quanto rende 100 mil reais por mês?
+              </Link>
+            </li>
+
           </ul>
 
           {/* Espaço para “empurrar” o conteúdo final */}   
