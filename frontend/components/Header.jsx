@@ -20,6 +20,12 @@ export default function Header() {
           <Link href="/quanto-investir-por-mes" className="hover:underline">
             Quanto Investir por Mês
           </Link>
+          <Link href="/quanto-rende-100-mil" className="hover:underline">
+            Quanto Rende R$ 100 mil
+          </Link>
+          <Link href="/quanto-investir-para-viver-de-renda" className="hover:underline">
+            Quanto Investir para Viver de Renda
+          </Link>
         </nav>
       </div>
     </header>
