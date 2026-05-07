@@ -1,32 +1,83 @@
+import { useState } from 'react'
 import Link from 'next/link'
 
 export default function Header() {
+  const [isCalculadorasOpen, setIsCalculadorasOpen] = useState(false)
+
   return (
-    <header className="bg-white border-b">
+    <header className="bg-white border-b sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo / Nome */}
-        <Link href="/" className="text-xl font-bold text-blue-600">
+        {/* Logo */}
+        <Link href="/" className="text-2xl font-black text-blue-600 tracking-tight">
           FinanSim
         </Link>
 
         {/* Navegação */}
-        <nav className="text-sm space-x-4">
-          <Link href="/" className="hover:underline">
+        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-700">
+          <Link href="/" className="hover:text-blue-600 transition-colors">
             Início
           </Link>
-          <Link href="/juros-compostos" className="hover:underline">
-            Juros Compostos
-          </Link>
-          <Link href="/quanto-investir-por-mes" className="hover:underline">
-            Quanto Investir por Mês
-          </Link>
-          <Link href="/quanto-rende-100-mil" className="hover:underline">
-            Quanto Rende R$ 100 mil
-          </Link>
-          <Link href="/quanto-investir-para-viver-de-renda" className="hover:underline">
-            Quanto Investir para Viver de Renda
+
+          {/* Dropdown Calculadoras */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsCalculadorasOpen(true)}
+            onMouseLeave={() => setIsCalculadorasOpen(false)}
+          >
+            <button className="flex items-center hover:text-blue-600 transition-colors py-2">
+              Calculadoras
+              <svg className={`ml-1 w-4 h-4 transition-transform ${isCalculadorasOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {isCalculadorasOpen && (
+              <div className="absolute left-0 w-64 bg-white border border-gray-100 shadow-xl rounded-lg py-2 mt-0">
+                <Link href="/juros-compostos" className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-700 transition-colors border-b border-gray-50">
+                  <span className="block font-bold">Juros Compostos</span>
+                  <span className="text-xs text-gray-500">Simule o poder dos juros sobre juros.</span>
+                </Link>
+                <Link href="/quanto-investir-por-mes" className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-700 transition-colors border-b border-gray-50">
+                  <span className="block font-bold">Quanto Investir por Mês</span>
+                  <span className="text-xs text-gray-500">Calcule o aporte para atingir sua meta.</span>
+                </Link>
+                <Link href="/quanto-investir-para-viver-de-renda" className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                  <span className="block font-bold">Viver de Renda</span>
+                  <span className="text-xs text-gray-500">Descubra quanto você precisa para parar.</span>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Menu Artigos/Blog (Simulado) */}
+          <div className="relative group">
+            <button className="flex items-center hover:text-blue-600 transition-colors py-2">
+              Aprenda
+              <svg className="ml-1 w-4 h-4 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div className="absolute hidden group-hover:block left-0 w-56 bg-white border border-gray-100 shadow-xl rounded-lg py-2">
+              <Link href="/quanto-rende-100-mil" className="block px-4 py-2 hover:bg-gray-50">Quanto rende R$ 100 mil?</Link>
+              <Link href="" className="block px-4 py-2 hover:bg-gray-50">Guia de Investimentos</Link>
+              <Link href="" className="block px-4 py-2 hover:bg-gray-50">O que é Selic?</Link>
+            </div>
+          </div>
+
+          <Link href="/sobre" className="hover:text-blue-600 transition-colors">
+            Sobre
           </Link>
         </nav>
+
+        {/* Botão de Destaque (Conversão) */}
+        <div className="hidden md:block">
+          <Link 
+            href="https://finansimbr.com.br/quanto-investir-por-mes" 
+            className="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-blue-700 transition-shadow shadow-md hover:shadow-lg"
+          >
+            Baixar Planilha
+          </Link>
+        </div>
       </div>
     </header>
   )
